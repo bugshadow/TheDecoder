@@ -171,7 +171,18 @@ OPENROUTER_APP_NAME=ShadowTrace
 
 ## 🖥️ Utilisation
 
-### Commande de Base
+### 1. Interface Web (Streamlit)
+L'interface graphique moderne permet une utilisation simplifiée via le navigateur.
+
+```bash
+# Lancer l'application web
+streamlit run streamlit_app.py
+```
+*L'application sera accessible sur `http://localhost:8501`*
+
+### 2. Interface Ligne de Commande (CLI)
+Pour les experts préférant le terminal :
+
 ```bash
 python decodeur.py --image <chemin_image>
 ```
@@ -780,8 +791,8 @@ MIT License - Libre d'utilisation, modification et distribution.
 
 Développé dans le cadre du projet **Digital Skills** - Cycle Ingénieur S1
 
-- **Phase 1 (Forensique)** : [Nom du binôme]
-- **Phase 2 (IA - LLM + NLP)** : [Votre nom]
+- **Phase 1 (Forensique)** : Omar Bouhaddach
+- **Phase 2 (IA - LLM + NLP)** : Douha 
 
 ---
 
@@ -790,21 +801,34 @@ Développé dans le cadre du projet **Digital Skills** - Cycle Ingénieur S1
 - [x] **Phase 1:** Analyse forensique avec 7 méthodes
 - [x] **Phase 2:** Intégration LLM pour analyse intelligente
 - [x] **Phase 2:** NLP pour structuration des résultats
-- [ ] **Phase 3:** API REST et interface web
-- [ ] **Phase 4:** Base de données + Historique des analyses
-- [ ] **Phase 5:** Dashboard de visualisation interactif
+- [x] **Phase 3:** API REST et interface web
+- [x] **Phase 5:** Dashboard de visualisation interactif
 
 ---
 
-## 🤝 Contribution
 
-Les contributions sont les bienvenues ! 
 
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/amazing-feature`)
-3. Commit (`git commit -m 'Add amazing feature'`)
-4. Push (`git push origin feature/amazing-feature`)
-5. Ouvrir une Pull Request
+
+## 📥 Téléchargement depuis GitHub
+
+Pour récupérer ce projet sur votre machine :
+
+### Option 1 : Via Git (Recommandé)
+```bash
+# Clone le dépôt
+git clone https://github.com/votre-username/shadowtrace.git
+
+# Entrer dans le dossier
+cd shadowtrace
+```
+
+### Option 2 : Via ZIP
+1. Aller sur la page GitHub du projet
+2. Cliquer sur le bouton vert **Code**
+3. Sélectionner **Download ZIP**
+4. Extraire l'archive
+5. Ouvrir un terminal dans le dossier extrait
+
 
 ---
 
@@ -822,10 +846,7 @@ Toujours obtenir les autorisations nécessaires avant d'analyser des images.
 
 ---
 
-## 📞 Contact
 
-- GitHub : [@votre-username](https://github.com/votre-username)
-- Projet : [ShadowTrace](https://github.com/votre-username/shadowtrace)
 
 ---
 

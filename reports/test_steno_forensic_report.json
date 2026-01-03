@@ -1,7 +1,7 @@
 {
   "image": "test_steno.png",
   "image_path": "C:\\Users\\bouha\\OneDrive\\Dokumente\\Cycle Ingenieur\\S1\\Digital skills\\Project Fin module\\test_steno.png",
-  "analysis_date": "2026-01-03T19:55:27.741575",
+  "analysis_date": "2026-01-03T21:00:31.714999",
   "ocr": {
     "tesseract": {
       "text": "",
@@ -123,19 +123,19 @@
   },
   "intelligent_analysis": {
     "status": "success",
-    "summary": "Le texte analysé est une lettre d'explication concernant une situation non spécifiée, avec un message caché détecté par stéganalyse. Le contenu semble être une excuse ou une justification pour un événement ou une action.",
+    "summary": "Le texte analysé est une lettre expliquant une situation, avec un message caché détecté via la stéganographie LSB. Le contenu semble être une excuse ou une explication pour une situation non spécifiée. Le message caché indique \"TEST FORENSIC\", ce qui suggère que le document pourrait être utilisé pour des fins de test ou de démonstration.",
     "nature": "professional",
-    "intention": "L'intention probable de l'auteur est de se justifier ou de s'excuser pour une action ou un événement qui a eu lieu, tout en montrant une volonté de collaborer pour résoudre le problème.",
-    "suspicion_score": 20,
-    "danger_level": "low",
+    "intention": "L'intention probable de l'auteur est de fournir une explication ou une excuse pour une situation qui s'est produite, tout en montrant une volonté de collaborer pour résoudre le problème. Cependant, la présence d'un message caché suggère que le document pourrait avoir une autre intention, telle que tester les capacités de détection de stéganographie.",
+    "suspicion_score": 40,
+    "danger_level": "medium",
     "risk_indicators": [
-      "Présence d'un message caché (TEST FORENSIC) détecté par stéganalyse",
-      "Manque de détails sur la situation décrite"
+      "Présence d'un message caché via la stéganographie LSB",
+      "Utilisation d'un langage formel et professionnel pour expliquer une situation non spécifiée"
     ],
     "suspicious_elements": [],
     "recommendations": [
-      "Effectuer une analyse plus approfondie du message caché et des signatures binaires pour déterminer leur nature et leur objectif",
-      "Demander des clarifications sur la situation décrite dans la lettre pour mieux comprendre le contexte"
+      "Effectuer une analyse plus approfondie du document pour déterminer la nature réelle du message caché et des signatures binaires détectées",
+      "Vérifier l'authenticité de la lettre et de l'auteur pour déterminer si elle est légitime ou non"
     ],
     "entities": {
       "persons": [
@@ -155,8 +155,8 @@
     },
     "llm_metadata": {
       "model": "meta-llama/llama-3.1-405b-instruct:free",
-      "tokens": 1143,
-      "raw_response": "**Rapport d'Analyse Forensique**\n\n**=== RÉSUMÉ ===**\nLe texte analysé est une lettre d'explication concernant une situation non spécifiée, avec un message caché détecté par stéganalyse. Le contenu semble être une excuse ou une justification pour un événement ou une action.\n\n**=== NATURE DU CONTENU ===**\nPROFESSIONNEL\n\n**=== INTENTION PROBABLE ===**\nL'intention probable de l'auteur est de se justifier ou de s'excuser pour une action ou un événement qui a eu lieu, tout en montrant une volonté de collaborer pour résoudre le problème.\n\n**=== SCORE DE SUSPICION ===**\n20\n\n**=== INDICATEURS DE RISQUE ===**\n- Présence d'un message caché (TEST FORENSIC) détecté par stéganalyse\n- Manque de détails sur la situation décrite\n\n**=== ÉLÉMENTS SUSPECTS DÉTECTÉS ===**\n- Message caché (TEST FORENSIC)\n- 10 signatures binaires détectées, pouvant indiquer la présence de fichiers cachés ou de code malveillant\n\n**=== RECOMMANDATIONS ===**\n- Effectuer une analyse plus approfondie du message caché et des signatures binaires pour déterminer leur nature et leur objectif\n- Demander des clarifications sur la situation décrite dans la lettre pour mieux comprendre le contexte\n\n**=== ENTITÉS CLÉS ===**\n- Personnes: Aucune mention spécifique\n- Organisations: Aucune mention spécifique\n- Lieux: Aucune mention spécifique\n- Emails: Aucune mention spécifique\n- URLs: Aucune mention spécifique\n- Dates: Aucune mention spécifique\n\nNote: Le score de suspicion est relativement bas, car le contenu de la lettre semble être professionnel et ne présente pas de caractère ouvertement malveillant. Cependant, la présence d'un message caché et de signatures binaires détectées justifie une analyse plus approfondie pour déterminer leur nature et leur objectif."
+      "tokens": 1211,
+      "raw_response": "**Rapport d'Analyse Forensique**\n\n**=== RÉSUMÉ ===**\n\nLe texte analysé est une lettre expliquant une situation, avec un message caché détecté via la stéganographie LSB. Le contenu semble être une excuse ou une explication pour une situation non spécifiée. Le message caché indique \"TEST FORENSIC\", ce qui suggère que le document pourrait être utilisé pour des fins de test ou de démonstration.\n\n**=== NATURE DU CONTENU ===**\n\nPROFESSIONNEL\n\n**=== INTENTION PROBABLE ===**\n\nL'intention probable de l'auteur est de fournir une explication ou une excuse pour une situation qui s'est produite, tout en montrant une volonté de collaborer pour résoudre le problème. Cependant, la présence d'un message caché suggère que le document pourrait avoir une autre intention, telle que tester les capacités de détection de stéganographie.\n\n**=== SCORE DE SUSPICION ===**\n\n40\n\n**=== INDICATEURS DE RISQUE ===**\n\n- Présence d'un message caché via la stéganographie LSB\n- Utilisation d'un langage formel et professionnel pour expliquer une situation non spécifiée\n\n**=== ÉLÉMENTS SUSPECTS DÉTECTÉS ===**\n\n- Message caché \"TEST FORENSIC\"\n- 10 signatures binaires détectées, ce qui pourrait indiquer la présence de fichiers cachés ou de code malveillant\n\n**=== RECOMMANDATIONS ===**\n\n- Effectuer une analyse plus approfondie du document pour déterminer la nature réelle du message caché et des signatures binaires détectées\n- Vérifier l'authenticité de la lettre et de l'auteur pour déterminer si elle est légitime ou non\n\n**=== ENTITÉS CLÉS ===**\n\n- Personnes: Aucune mention spécifique\n- Organisations: Aucune mention spécifique\n- Lieux: Aucune mention spécifique\n- Emails: Aucune mention spécifique\n- URLs: Aucune mention spécifique\n- Dates: Aucune mention spécifique\n\nNote: Les recommandations et les entités clés sont basées sur les informations fournies dans le texte et pourraient nécessiter une analyse plus approfondie pour déterminer leur pertinence et leur importance."
     },
     "sources": [
       "Stéganographie LSB",

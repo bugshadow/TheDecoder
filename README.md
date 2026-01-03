@@ -142,7 +142,6 @@ C:\Program Files\Tesseract-OCR\tesseract.exe
 
 ## 🖥️ Utilisation
 
-<<<<<<< HEAD
 ### 1. Interface Web (Streamlit)
 L'interface graphique moderne permet une utilisation simplifiée via le navigateur.
 
@@ -154,9 +153,6 @@ streamlit run streamlit_app.py
 
 ### 2. Interface Ligne de Commande (CLI)
 Pour les experts préférant le terminal :
-=======
-### Commande de Base
->>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1
 
 ```bash
 python decodeur.py --image <chemin_image>
@@ -443,7 +439,6 @@ Le rapport JSON contient toutes les données structurées:
 
 Le rapport PDF contient:
 - **En-tête:** Titre, date, informations générales
-<<<<<<< HEAD
 - **Tableau des résultats:** 9 méthodes forensiques (incluant bit-planes et histogramme)
 - **Analyse Intelligente (LLM + NLP)** : Score détaillé, patterns détectés, recommandations complètes
   - 📊 Score de suspicion IA (0-100)
@@ -454,10 +449,6 @@ Le rapport PDF contient:
   - ✅ Recommandations d'investigation
   - 🔧 Métadonnées du modèle LLM
 - **Conclusion:** Niveau de suspicion global
-=======
-- **Tableau des résultats:** Toutes les méthodes avec leur statut
-- **Conclusion:** Niveau de suspicion et recommandations
->>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1
 - **Footer:** Version et timestamp
 
 Générer un PDF:
@@ -520,16 +511,6 @@ python decodeur.py --image photo.png --pdf
 ### Structure du Code
 
 ```
-<<<<<<< HEAD
-shadowtrace/
-├── decodeur.py               # Script principal (Phase 1 + intégration)
-├── llm_analyzer.py           # Module IA (Phase 2: LLM + NLP)
-├── config.py                 # Configuration (mots-clés, modèles)
-├── .env                      # Variables d'environnement (non versionné)
-├── requirements.txt          # Dépendances
-├── venv/                     # Environnement virtuel
-└── reports/                  # Rapports générés
-=======
 decodeur.py
 │
 ├── CONSTANTES
@@ -556,7 +537,6 @@ decodeur.py
 │   └── generate_pdf_report()      # Export PDF (ReportLab)
 │
 └── main()                     # Point d'entrée CLI
->>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1
 ```
 
 ### Dépendances
@@ -691,7 +671,6 @@ MIT License - Libre d'utilisation, modification et distribution.
 
 Développé dans le cadre du projet **Digital Skills** - Cycle Ingénieur S1
 
-<<<<<<< HEAD
 - **Phase 1 (Forensique)** : Omar Bouhaddach
 - **Phase 2 (IA - LLM + NLP)** : Douha 
 
@@ -754,16 +733,3 @@ Toujours obtenir les autorisations nécessaires avant d'analyser des images.
 <p align="center">
   <i>Développé avec ❤️ pour la cybersécurité et l'analyse forensique</i>
 </p>
-=======
----
-
-## 🔮 Prochaines Phases
-
-- **Phase 2:** Intégration LLM pour analyse intelligente
-- **Phase 3:** API REST et interface web
-- **Phase 4:** NLP pour extraction d'entités
-
----
-
-> 🔒 **Rappel:** Cet outil est destiné à un usage éthique et légal uniquement. Toujours obtenir les autorisations nécessaires avant d'analyser des images.
->>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1

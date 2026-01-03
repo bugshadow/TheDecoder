@@ -358,7 +358,7 @@ La différence est imperceptible à l'œil humain mais permet de stocker 1 bit p
 
 ## 🤖 Analyse Intelligente (IA)
 
-### 8️⃣ Phase 2 : LLM + NLP
+### Phase 2 : LLM + NLP
 
 **Nouveau !** L'analyse intelligente combine :
 - **LLM (Llama 3.1 405B)** : Analyse sémantique du texte extrait

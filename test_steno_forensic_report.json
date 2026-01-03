@@ -1,0 +1,124 @@
+{
+  "image": "test_steno.png",
+  "image_path": "C:\\Users\\bouha\\OneDrive\\Dokumente\\Cycle Ingenieur\\S1\\Digital skills\\Project Fin module\\test_steno.png",
+  "analysis_date": "2026-01-03T11:55:59.757285",
+  "ocr": {
+    "tesseract": {
+      "text": "",
+      "success": false
+    },
+    "easyocr": {
+      "text": "LETTRE POUR EXPLIQUER UNE SITUATION Lieu À Objet Explication de la situation Madame; Monsieur , Par la présente; je souhaite vous exposer en toute transparence la situation suivante; qui a conduit à [expliquer brièvement la situation] Je tiens à souligner que cette situation est indépendante de ma volonté et que je prends l'entière responsabilité de mes actes tout en restant disposé(e) à collaborer pour résoudre ce problème dans le respect des règles et obligations s'appliquent. Je suis conscient(e) des conséquences que cela peut engendrer et m'engage à mettre en œuvre les mesures nécessaires pour éviter que cela ne se reproduise à l'avenir . Je reste à votre disposition pour toute information complémentaire ou entretien que vous jugerez utile, afin de clarifier cette situation et envisager ensemble les solutions appropriées. Je vous prie dagréer, Madame, Monsieur, l'expression de mes salutations distinguées. Signature qui",
+      "success": true
+    }
+  },
+  "steganography": {
+    "lsb": "Message cache : TEST FORENSIC",
+    "exif": {
+      "standard": {},
+      "suspicious": [],
+      "comments": [],
+      "raw_tags": {}
+    },
+    "ascii_strings": [],
+    "binary_signatures": [
+      {
+        "type": "BMP",
+        "offset": 46585,
+        "hex_offset": "0xb5f9"
+      },
+      {
+        "type": "BMP",
+        "offset": 58439,
+        "hex_offset": "0xe447"
+      },
+      {
+        "type": "BMP",
+        "offset": 68735,
+        "hex_offset": "0x10c7f"
+      },
+      {
+        "type": "BMP",
+        "offset": 92756,
+        "hex_offset": "0x16a54"
+      },
+      {
+        "type": "BMP",
+        "offset": 188454,
+        "hex_offset": "0x2e026"
+      },
+      {
+        "type": "BMP",
+        "offset": 365456,
+        "hex_offset": "0x59390"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 164245,
+        "hex_offset": "0x28195"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 175514,
+        "hex_offset": "0x2ad9a"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 217266,
+        "hex_offset": "0x350b2"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 293573,
+        "hex_offset": "0x47ac5"
+      }
+    ],
+    "bit_plane_anomaly": false,
+    "histogram_anomaly": false,
+    "bit_plane_details": {
+      "lsb_entropy": 0.19038578867912292,
+      "lsb_ratio": 0.9707956613916902,
+      "anomaly_entropy": false,
+      "anomaly_ratio": false
+    },
+    "histogram_details": {
+      "channel_stats": {
+        "Blue": {
+          "mean": 250.00076976642836,
+          "std": 32.11201010228207,
+          "peaks": [
+            255
+          ],
+          "zero_gaps": 0
+        },
+        "Green": {
+          "mean": 250.00077209278763,
+          "std": 32.11201042822929,
+          "peaks": [
+            255
+          ],
+          "zero_gaps": 0
+        },
+        "Red": {
+          "mean": 250.00076976642836,
+          "std": 32.11201010228207,
+          "peaks": [
+            255
+          ],
+          "zero_gaps": 0
+        }
+      },
+      "anomalous_channels": []
+    }
+  },
+  "summary": {
+    "extraction_success": true,
+    "suspicion_level": "medium",
+    "methods_with_findings": [
+      "OCR",
+      "LSB",
+      "SIGNATURES"
+    ],
+    "total_findings": 3
+  }
+}

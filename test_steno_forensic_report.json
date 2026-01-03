@@ -1,15 +1,15 @@
 {
   "image": "test_steno.png",
-  "image_path": "C:\\Users\\bouha\\OneDrive\\Dokumente\\Cycle Ingenieur\\S1\\Digital skills\\Project Fin module\\test_steno.png",
-  "analysis_date": "2026-01-03T11:55:59.757285",
+  "image_path": "E:\\ENSET\\Digital_Skills_Py\\TheDecoder\\test_steno.png",
+  "analysis_date": "2026-01-03T19:16:09.422900",
   "ocr": {
     "tesseract": {
       "text": "",
       "success": false
     },
     "easyocr": {
-      "text": "LETTRE POUR EXPLIQUER UNE SITUATION Lieu À Objet Explication de la situation Madame; Monsieur , Par la présente; je souhaite vous exposer en toute transparence la situation suivante; qui a conduit à [expliquer brièvement la situation] Je tiens à souligner que cette situation est indépendante de ma volonté et que je prends l'entière responsabilité de mes actes tout en restant disposé(e) à collaborer pour résoudre ce problème dans le respect des règles et obligations s'appliquent. Je suis conscient(e) des conséquences que cela peut engendrer et m'engage à mettre en œuvre les mesures nécessaires pour éviter que cela ne se reproduise à l'avenir . Je reste à votre disposition pour toute information complémentaire ou entretien que vous jugerez utile, afin de clarifier cette situation et envisager ensemble les solutions appropriées. Je vous prie dagréer, Madame, Monsieur, l'expression de mes salutations distinguées. Signature qui",
-      "success": true
+      "text": "",
+      "success": false
     }
   },
   "steganography": {
@@ -113,12 +113,51 @@
   },
   "summary": {
     "extraction_success": true,
-    "suspicion_level": "medium",
+    "suspicion_level": "low",
     "methods_with_findings": [
-      "OCR",
       "LSB",
       "SIGNATURES"
     ],
-    "total_findings": 3
+    "total_findings": 2
+  },
+  "intelligent_analysis": {
+    "status": "success",
+    "summary": "Le texte extrait par stéganalyse contient un message caché qui semble être un test de capacités forensiques. L'analyse révèle que le contenu est probablement anodin, mais certaines caractéristiques techniques pourraient indiquer une intention plus complexe.",
+    "nature": "benign",
+    "intention": "L'intention probable de l'auteur est de tester les capacités d'analyse forensique du destinataire ou de démontrer les compétences en stéganographie. Cependant, il est également possible que ce message soit un leurre pour dissimuler un objectif plus malveillant.",
+    "suspicion_score": 20,
+    "danger_level": "low",
+    "risk_indicators": [
+      "Utilisation de la stéganographie pour cacher un message, ce qui peut indiquer une volonté de dissimulation.",
+      "Présence de signatures binaires détectées, ce qui pourrait être le signe d'une tentative d'exfiltration de données ou d'une infection malveillante."
+    ],
+    "suspicious_elements": [],
+    "recommendations": [
+      "Effectuer une analyse plus approfondie des signatures binaires pour déterminer leur origine et leur objectif.",
+      "Rechercher d'autres indices ou messages cachés dans le fichier ou les communications associées."
+    ],
+    "entities": {
+      "persons": [
+        "Aucune"
+      ],
+      "organizations": [
+        "Aucune"
+      ],
+      "locations": [],
+      "emails": [],
+      "urls": [],
+      "dates": [
+        "Aucune"
+      ]
+    },
+    "llm_metadata": {
+      "model": "meta-llama/llama-3.1-405b-instruct:free",
+      "tokens": 900,
+      "raw_response": "**RAPPORT D'ANALYSE FORENSIQUE**\n\n**=== RÉSUMÉ ===**\n\nLe texte extrait par stéganalyse contient un message caché qui semble être un test de capacités forensiques. L'analyse révèle que le contenu est probablement anodin, mais certaines caractéristiques techniques pourraient indiquer une intention plus complexe.\n\n**=== NATURE DU CONTENU ===**\n\nANODIN\n\n**=== INTENTION PROBABLE ===**\n\nL'intention probable de l'auteur est de tester les capacités d'analyse forensique du destinataire ou de démontrer les compétences en stéganographie. Cependant, il est également possible que ce message soit un leurre pour dissimuler un objectif plus malveillant.\n\n**=== SCORE DE SUSPICION ===**\n\n20\n\n**=== INDICATEURS DE RISQUE ===**\n\n- Utilisation de la stéganographie pour cacher un message, ce qui peut indiquer une volonté de dissimulation.\n- Présence de signatures binaires détectées, ce qui pourrait être le signe d'une tentative d'exfiltration de données ou d'une infection malveillante.\n\n**=== ÉLÉMENTS SUSPECTS DÉTECTÉS ===**\n\n- Le message caché \"TEST FORENSIC\" pourrait être considéré comme une provocation ou un piège pour inciter l'analyste à poursuivre l'investigation.\n- La présence de 10 signatures binaires détectées nécessite une analyse plus approfondie pour déterminer leur nature et leur objectif.\n\n**=== RECOMMANDATIONS ===**\n\n- Effectuer une analyse plus approfondie des signatures binaires pour déterminer leur origine et leur objectif.\n- Rechercher d'autres indices ou messages cachés dans le fichier ou les communications associées.\n\n**=== ENTITÉS CLÉS ===**\n\n- Personnes: Aucune\n- Organisations: Aucune\n- Lieux: Aucun\n- Emails: Aucun\n- URLs: Aucune\n- Dates: Aucune\n\nCe rapport est basé sur les informations fournies et est sujet à révision en fonction de nouvelles découvertes ou d'analyses supplémentaires."
+    },
+    "sources": [
+      "Stéganographie LSB"
+    ],
+    "text_length": 29
   }
 }

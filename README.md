@@ -88,7 +88,7 @@
 | 5 | **Signatures** | Détection de fichiers cachés (ZIP, PDF, EXE) | ⚠️ Détection |
 | 6 | **Bit-planes** | Analyse des plans de bits faibles (entropie LSB) | ⚠️ Détection |
 | 7 | **Histogramme** | Analyse statistique des canaux couleur | ⚠️ Détection |
-| **8** | **🆕 Analyse IA** | **Analyse sémantique intelligente (LLM + NLP)** | **✅ Score + Recommandations** |
+| **8** | **Analyse IA** | **Analyse sémantique intelligente (LLM + NLP)** | **✅ Score + Recommandations** |
 
 ---
 

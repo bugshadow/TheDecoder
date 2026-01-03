@@ -30,6 +30,9 @@ from stegano import lsb
 import pytesseract
 import easyocr
 
+from llm_analyzer import IntelligentForensicAnalyzer
+LLM_AVAILABLE = True
+
 # ReportLab pour PDF
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -589,6 +592,33 @@ class ForensicAnalyzer:
         
         # Corréler les résultats
         self.correlate_results()
+
+        # Analyse intelligente (LLM + NLP)
+        if LLM_AVAILABLE:
+            try:
+                print(f"\n{Fore.WHITE}{Style.BRIGHT}{'='*60}")
+                print(f"{Fore.WHITE}{Style.BRIGHT} PHASE 2 : ANALYSE INTELLIGENTE (LLM + NLP)")
+                print(f"{Fore.WHITE}{Style.BRIGHT}{'='*60}")
+                
+                llm_analyzer = IntelligentForensicAnalyzer()
+                intelligent_results = llm_analyzer.analyze_forensic_data(self.results)
+                
+                # Ajouter les résultats au dictionnaire principal
+                self.results['intelligent_analysis'] = intelligent_results
+                
+                # Afficher un résumé dans le terminal
+                if intelligent_results.get('status') == 'success':
+                    print(f"\n{Fore.GREEN}[+] Analyse intelligente complétée :")
+                    print(f"  📊 Score de suspicion : {intelligent_results['suspicion_score']}/100")
+                    print(f"  ⚠️  Niveau de danger : {intelligent_results['danger_level'].upper()}")
+                    print(f"  📝 Nature : {intelligent_results['nature']}")
+                
+            except Exception as e:
+                print(f"\n{Fore.YELLOW}[WARNING] Analyse intelligente échouée : {e}")
+                if self.verbose:
+                    import traceback
+                    traceback.print_exc()
+                print(f"{Fore.CYAN}[INFO] Les résultats de base restent disponibles.")
         
         return self.results
 
@@ -700,6 +730,53 @@ def print_terminal_report(results: Dict[str, Any]):
     if level in ['medium', 'high']:
         print(f"\n  {Fore.YELLOW}⚠ Plusieurs indices de dissimulation détectés.")
         print(f"  {Fore.YELLOW}  Une analyse approfondie est recommandée.")
+
+    # Section Analyse Intelligente
+    if 'intelligent_analysis' in results:
+        ia = results['intelligent_analysis']
+        
+        if ia.get('status') == 'success':
+            print(f"\n{Fore.WHITE}{Style.BRIGHT}{'='*60}")
+            print(f"{Fore.WHITE}{Style.BRIGHT}[ANALYSE INTELLIGENTE - LLM]")
+            print(f"{Fore.WHITE}{Style.BRIGHT}{'='*60}")
+            
+            # Score et niveau
+            score = ia['suspicion_score']
+            danger = ia['danger_level']
+            
+            danger_colors = {
+                'low': Fore.GREEN,
+                'medium': Fore.YELLOW,
+                'high': Fore.RED,
+                'critical': Fore.RED + Style.BRIGHT
+            }
+            danger_color = danger_colors.get(danger, Fore.WHITE)
+            
+            print(f"\n  📊 Score de suspicion IA : {danger_color}{score}/100{Style.RESET_ALL}")
+            print(f"  🎯 Niveau de danger : {danger_color}{danger.upper()}{Style.RESET_ALL}")
+            print(f"  📝 Nature du contenu : {ia['nature']}")
+            
+            # Résumé
+            if ia['summary']:
+                print(f"\n  {Fore.CYAN}Résumé :{Style.RESET_ALL}")
+                print(f"    {ia['summary'][:200]}...")
+            
+            # Recommandations
+            if ia['recommendations']:
+                print(f"\n  {Fore.YELLOW}Recommandations :{Style.RESET_ALL}")
+                for i, rec in enumerate(ia['recommendations'][:3], 1):
+                    print(f"    {i}. {rec}")
+            
+            # Indicateurs de risque
+            if ia['risk_indicators']:
+                print(f"\n  {Fore.RED}Indicateurs de risque :{Style.RESET_ALL}")
+                for indicator in ia['risk_indicators'][:3]:
+                    print(f"    • {indicator}")
+            
+            # Métadonnées
+            meta = ia.get('llm_metadata', {})
+            print(f"\n  {Fore.CYAN}Modèle utilisé :{Style.RESET_ALL} {meta.get('model', 'Unknown')}")
+            print(f"  {Fore.CYAN}Tokens consommés :{Style.RESET_ALL} {meta.get('tokens', 0)}")
 
 
 def json_serializer(obj):
@@ -869,6 +946,48 @@ def generate_pdf_report(results: Dict[str, Any], output_path: Path, image_path: 
             "⚠ Plusieurs indices de dissimulation détectés. Une analyse approfondie est recommandée.",
             warning_style
         ))
+
+    # Section Analyse Intelligente
+    if 'intelligent_analysis' in results:
+        ia = results['intelligent_analysis']
+        
+        if ia.get('status') == 'success':
+            elements.append(Spacer(1, 20))
+            elements.append(Paragraph("Analyse Intelligente (LLM + NLP)", heading_style))
+            
+            # Tableau résumé IA
+            ia_data = [
+                ['Métrique', 'Valeur'],
+                ['Score de suspicion IA', f"{ia['suspicion_score']}/100"],
+                ['Niveau de danger', ia['danger_level'].upper()],
+                ['Nature du contenu', ia['nature']],
+                ['Modèle LLM', ia.get('llm_metadata', {}).get('model', 'Unknown')],
+                ['Tokens utilisés', str(ia.get('llm_metadata', {}).get('tokens', 0))],
+            ]
+            
+            ia_table = Table(ia_data, colWidths=[5*cm, 11*cm])
+            ia_table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#16213e')),
+                ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0, 0), (-1, -1), 9),
+                ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+                ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f5f5f5')]),
+            ]))
+            elements.append(ia_table)
+            
+            # Résumé IA
+            if ia['summary']:
+                elements.append(Spacer(1, 10))
+                elements.append(Paragraph("<b>Résumé de l'analyse :</b>", normal_style))
+                elements.append(Paragraph(ia['summary'], normal_style))
+            
+            # Recommandations
+            if ia['recommendations']:
+                elements.append(Spacer(1, 10))
+                elements.append(Paragraph("<b>Recommandations :</b>", normal_style))
+                for i, rec in enumerate(ia['recommendations'], 1):
+                    elements.append(Paragraph(f"{i}. {rec}", normal_style))
     
     # Footer
     elements.append(Spacer(1, 40))

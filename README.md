@@ -1,10 +1,10 @@
-# 🔍 ShadowTrace - Analyse Forensique d'Images Intelligente
+# 🔍 Le Décodeur - Analyse Forensique d'Images
 
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Python 3.x](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)]()
+[![Phase: 1](https://img.shields.io/badge/Phase-1-orange.svg)]()
 
-> **Outil CLI professionnel d'analyse forensique d'images combinant stéganalyse avancée et intelligence artificielle.**
+> **Outil CLI professionnel pour l'analyse forensique d'images avec détection de stéganographie, OCR, et analyse de métadonnées.**
 
 ---
 
@@ -15,19 +15,17 @@
 3. [Installation](#-installation)
 4. [Utilisation](#-utilisation)
 5. [Méthodes d'Analyse](#-méthodes-danalyse)
-6. [Analyse Intelligente (IA)](#-analyse-intelligente-ia)
-7. [Formats de Sortie](#-formats-de-sortie)
-8. [Architecture](#-architecture)
-9. [Exemples](#-exemples)
-10. [Philosophie Forensic](#-philosophie-forensic)
-11. [Dépannage](#-dépannage)
-12. [Roadmap](#-roadmap)
+6. [Formats de Sortie](#-formats-de-sortie)
+7. [Architecture](#-architecture)
+8. [Exemples](#-exemples)
+9. [Philosophie Forensic](#-philosophie-forensic)
+10. [Dépannage](#-dépannage)
 
 ---
 
 ## 🎯 Introduction
 
-**ShadowTrace** est un outil d'analyse forensique d'images en ligne de commande (CLI) conçu pour les professionnels de la cybersécurité et les analystes forensiques numériques.
+**Le Décodeur** est un outil d'analyse forensique d'images en ligne de commande (CLI) conçu pour les professionnels de la cybersécurité et les analystes forensiques numériques.
 
 ### Objectifs Principaux
 
@@ -36,15 +34,22 @@
 - ✅ Appliquer **7 méthodes de stéganalyse** différentes
 - ✅ Tenter d'extraire des données cachées
 - ✅ Détecter des indices de dissimulation
-- ✅ **Analyser intelligemment avec IA (LLM + NLP)**
 - ✅ Comparer et corréler les résultats
 - ✅ Générer des rapports structurés (Terminal, JSON, PDF)
+
+### Ce que cet outil N'est PAS (Phase 1)
+
+- ❌ Pas d'intégration LLM (Gemini, OpenAI, Ollama)
+- ❌ Pas de NLP (spaCy, NER, résumé)
+- ❌ Pas d'API web
+- ❌ Pas d'interface graphique
 
 ---
 
 ## ✨ Fonctionnalités
 
-### Pipeline d'Analyse Complet
+### Pipeline d'Analyse
+
 ```
 ┌─────────────────┐
 │   Image (input) │
@@ -68,11 +73,6 @@
 └────────┬────────┘
          ▼
 ┌─────────────────┐
-│  Analyse IA     │  ← LLM (Llama 3.1 405B) + NLP
-│  (LLM + NLP)    │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
 │    Rapports     │  ← Terminal + JSON + PDF
 └─────────────────┘
 ```
@@ -88,7 +88,6 @@
 | 5 | **Signatures** | Détection de fichiers cachés (ZIP, PDF, EXE) | ⚠️ Détection |
 | 6 | **Bit-planes** | Analyse des plans de bits faibles (entropie LSB) | ⚠️ Détection |
 | 7 | **Histogramme** | Analyse statistique des canaux couleur | ⚠️ Détection |
-| **8** | **Analyse IA** | **Analyse sémantique intelligente (LLM + NLP)** | **✅ Score + Recommandations** |
 
 ---
 
@@ -97,17 +96,17 @@
 ### Prérequis
 
 - **Python 3.8+**
-- **Tesseract OCR** installé sur le système (optionnel)
+- **Tesseract OCR** installé sur le système
 - **pip** pour l'installation des dépendances
-- **Connexion Internet** (pour l'analyse IA)
 
-### 1. Cloner le projet
+### 1. Cloner ou télécharger le projet
+
 ```bash
-git clone https://github.com/votre-username/shadowtrace.git
-cd shadowtrace
+cd "c:\Users\bouha\OneDrive\Dokumente\Cycle Ingenieur\S1\Digital skills\Project Fin module"
 ```
 
 ### 2. Créer un environnement virtuel
+
 ```bash
 python -m venv venv
 ```
@@ -124,26 +123,13 @@ python -m venv venv
 .\venv\Scripts\activate.bat
 ```
 
-**Linux/Mac:**
-```bash
-source venv/bin/activate
-```
-
 ### 4. Installer les dépendances
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Télécharger les modèles spaCy
-```bash
-# Modèle français
-python -m spacy download fr_core_news_sm
-
-# Modèle anglais
-python -m spacy download en_core_web_sm
-```
-
-### 6. Installer Tesseract OCR (optionnel)
+### 5. Installer Tesseract OCR
 
 Télécharger et installer depuis: https://github.com/UB-Mannheim/tesseract/wiki
 
@@ -152,25 +138,11 @@ Par défaut, le script attend Tesseract dans:
 C:\Program Files\Tesseract-OCR\tesseract.exe
 ```
 
-### 7. Configuration de l'analyse IA
-
-Créez un fichier `.env` à la racine du projet :
-```bash
-# Clé API OpenRouter (gratuit)
-OPENROUTER_API_KEY=sk-or-v1-xxxxxxxxxxxxx
-OPENROUTER_MODEL=meta-llama/llama-3.1-405b-instruct:free
-LLM_PROVIDER=openrouter
-
-# Informations app (optionnel)
-OPENROUTER_APP_NAME=ShadowTrace
-```
-
-**Obtenir une clé API gratuite** : https://openrouter.ai/
-
 ---
 
 ## 🖥️ Utilisation
 
+<<<<<<< HEAD
 ### 1. Interface Web (Streamlit)
 L'interface graphique moderne permet une utilisation simplifiée via le navigateur.
 
@@ -182,6 +154,9 @@ streamlit run streamlit_app.py
 
 ### 2. Interface Ligne de Commande (CLI)
 Pour les experts préférant le terminal :
+=======
+### Commande de Base
+>>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1
 
 ```bash
 python decodeur.py --image <chemin_image>
@@ -198,6 +173,7 @@ python decodeur.py --image <chemin_image>
 | `--docs` | `-d` | Afficher la documentation complète | ❌ Non |
 
 ### Exemples de Commandes
+
 ```bash
 # Analyse simple
 python decodeur.py --image photo.png
@@ -396,107 +372,20 @@ La différence est imperceptible à l'œil humain mais permet de stocker 1 bit p
 
 ---
 
-## 🤖 Analyse Intelligente (IA)
-
-### Phase 2 : LLM + NLP
-
-**Nouveau !** L'analyse intelligente combine :
-- **LLM (Llama 3.1 405B)** : Analyse sémantique du texte extrait
-- **NLP (spaCy)** : Structuration des résultats
-
-**Pipeline :**
-```
-Textes extraits (OCR + LSB + EXIF)
-         ↓
-    LLM (Llama 3.1 405B)
-         │
-         ├─> Génère rapport en langage naturel
-         ├─> Score de suspicion (0-100)
-         ├─> Nature du contenu
-         ├─> Recommandations
-         └─> Indicateurs de risque
-         ↓
-    NLP (spaCy)
-         │
-         ├─> Extrait le score
-         ├─> Structure les listes
-         ├─> Extrait les entités
-         └─> Normalise les données
-         ↓
-    JSON structuré
-```
-
-**Résultats IA :**
-```json
-{
-  "intelligent_analysis": {
-    "status": "success",
-    "suspicion_score": 72,
-    "danger_level": "medium",
-    "nature": "suspicious",
-    "summary": "Lettre professionnelle avec message LSB caché...",
-    "intention": "Dissimulation de données sensibles...",
-    "risk_indicators": [
-      "Présence de stéganographie LSB active",
-      "10 signatures binaires détectées"
-    ],
-    "recommendations": [
-      "Analyser les fichiers EXE détectés",
-      "Vérifier l'origine du message LSB"
-    ],
-    "entities": {
-      "persons": ["Madame", "Monsieur"],
-      "emails": [],
-      "urls": []
-    },
-    "llm_metadata": {
-      "model": "meta-llama/llama-3.1-405b-instruct:free",
-      "tokens": 1192
-    }
-  }
-}
-```
-
-**Niveaux de danger automatiques :**
-
-| Score | Niveau | Interprétation |
-|-------|--------|----------------|
-| 0-29 | `low` | Contenu probablement anodin |
-| 30-59 | `medium` | Suspicion modérée, investigation recommandée |
-| 60-79 | `high` | Forte probabilité de contenu malveillant |
-| 80-100 | `critical` | Menace critique, action immédiate |
-
-**Coût :** 0€ (Llama 3.1 405B gratuit via OpenRouter)
-
----
-
 ## 📊 Formats de Sortie
 
 ### 1. Sortie Terminal
+
 ```
 ============================================================
- SHADOWTRACE - Analyse Forensique d'Images
+ LE DÉCODEUR - Analyse Forensique d'Images
 ============================================================
 [+] Image analysée : test_steno.png
-[+] Date : 2026-01-03 17:45:59
+[+] Date : 2026-01-03 11:55:59
 
 [ANALYSE] OCR - Détection de texte visible...
 [ANALYSE] LSB - Stéganographie bit de poids faible...
 ...
-
-============================================================
- PHASE 2 : ANALYSE INTELLIGENTE (LLM + NLP)
-============================================================
-
-[+] Textes collectés depuis : OCR (easyocr), Stéganographie LSB
-[+] Longueur totale : 992 caractères
-
-[LLM] Utilisation du modèle : meta-llama/llama-3.1-405b-instruct:free
-[LLM] ✓ Réponse reçue (1192 tokens)
-
-[NLP] ✓ Score extrait: 20/100
-[NLP] ✓ Nature: professional
-[NLP] ✓ Niveau de danger: low
 
 ============================================================
  RAPPORT D'ANALYSE FORENSIQUE
@@ -509,47 +398,44 @@ Textes extraits (OCR + LSB + EXIF)
   ✓ Message caché : OUI
     Message: Message cache : TEST FORENSIC...
 
+...
+
 [CONCLUSION]
 ============================================================
   Méthodes avec résultats : OCR, LSB, SIGNATURES
   Niveau de suspicion : MEDIUM
   ✓ Extraction directe : RÉUSSIE
-
-============================================================
-[ANALYSE INTELLIGENTE - LLM]
-============================================================
-
-  📊 Score de suspicion IA : 20/100
-  🎯 Niveau de danger : LOW
-  📝 Nature du contenu : professional
-
-  Résumé :
-    Lettre professionnelle avec message caché "TEST FORENSIC"...
-
-  Recommandations :
-    1. Analyser les fichiers EXE détectés
-    2. Vérifier l'authenticité de la lettre
-
-  Modèle utilisé : meta-llama/llama-3.1-405b-instruct:free
-  Tokens consommés : 1192
 ```
 
 ### 2. Rapport JSON
 
-Le rapport JSON contient toutes les données structurées incluant l'analyse IA :
+Le rapport JSON contient toutes les données structurées:
+
 ```json
 {
   "image": "test_steno.png",
-  "analysis_date": "2026-01-03T11:49:12",
-  "ocr": {...},
-  "steganography": {...},
-  "intelligent_analysis": {
-    "status": "success",
-    "suspicion_score": 20,
-    "danger_level": "low",
-    "recommendations": [...]
+  "image_path": "C:\\...\\test_steno.png",
+  "analysis_date": "2026-01-03T11:49:12.638272",
+  "ocr": {
+    "tesseract": {"text": "...", "success": true},
+    "easyocr": {"text": "...", "success": true}
   },
-  "summary": {...}
+  "steganography": {
+    "lsb": "Message cache : TEST FORENSIC",
+    "exif": {...},
+    "ascii_strings": [],
+    "binary_signatures": [...],
+    "bit_plane_anomaly": false,
+    "histogram_anomaly": false,
+    "bit_plane_details": {...},
+    "histogram_details": {...}
+  },
+  "summary": {
+    "extraction_success": true,
+    "suspicion_level": "medium",
+    "methods_with_findings": ["OCR", "LSB", "SIGNATURES"],
+    "total_findings": 3
+  }
 }
 ```
 
@@ -557,6 +443,7 @@ Le rapport JSON contient toutes les données structurées incluant l'analyse IA 
 
 Le rapport PDF contient:
 - **En-tête:** Titre, date, informations générales
+<<<<<<< HEAD
 - **Tableau des résultats:** 9 méthodes forensiques (incluant bit-planes et histogramme)
 - **Analyse Intelligente (LLM + NLP)** : Score détaillé, patterns détectés, recommandations complètes
   - 📊 Score de suspicion IA (0-100)
@@ -567,6 +454,10 @@ Le rapport PDF contient:
   - ✅ Recommandations d'investigation
   - 🔧 Métadonnées du modèle LLM
 - **Conclusion:** Niveau de suspicion global
+=======
+- **Tableau des résultats:** Toutes les méthodes avec leur statut
+- **Conclusion:** Niveau de suspicion et recommandations
+>>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1
 - **Footer:** Version et timestamp
 
 Générer un PDF:
@@ -626,8 +517,10 @@ python decodeur.py --image photo.png --pdf
 
 ## 🏗️ Architecture
 
-### Structure du Projet
+### Structure du Code
+
 ```
+<<<<<<< HEAD
 shadowtrace/
 ├── decodeur.py               # Script principal (Phase 1 + intégration)
 ├── llm_analyzer.py           # Module IA (Phase 2: LLM + NLP)
@@ -636,28 +529,48 @@ shadowtrace/
 ├── requirements.txt          # Dépendances
 ├── venv/                     # Environnement virtuel
 └── reports/                  # Rapports générés
+=======
+decodeur.py
+│
+├── CONSTANTES
+│   ├── BINARY_SIGNATURES      # Signatures de fichiers connus
+│   └── STRING_PATTERNS        # Patterns regex à rechercher
+│
+├── ForensicAnalyzer (classe)
+│   ├── __init__()             # Initialisation, chargement image
+│   ├── _load_image()          # Chargement multi-format
+│   ├── preprocess_image()     # Pré-traitement OpenCV
+│   ├── analyze_ocr()          # Méthode 1: OCR
+│   ├── analyze_lsb()          # Méthode 2: LSB
+│   ├── analyze_exif()         # Méthode 3: EXIF
+│   ├── analyze_strings()      # Méthode 4: Strings
+│   ├── detect_signatures()    # Méthode 5: Signatures
+│   ├── analyze_bitplanes()    # Méthode 6: Bit-planes
+│   ├── analyze_histogram()    # Méthode 7: Histogramme
+│   ├── correlate_results()    # Corrélation finale
+│   └── run_all_analyses()     # Exécution pipeline
+│
+├── RAPPORTS
+│   ├── print_terminal_report()    # Affichage console
+│   ├── generate_json_report()     # Export JSON
+│   └── generate_pdf_report()      # Export PDF (ReportLab)
+│
+└── main()                     # Point d'entrée CLI
+>>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1
 ```
 
 ### Dépendances
 
-**Phase 1 - Forensique :**
 ```
 opencv-python    # Traitement d'image
 numpy            # Calculs numériques
 pillow           # Manipulation d'images + EXIF
-piexif           # EXIF détaillé
-colorama         # Couleurs terminal
+piexif           # EXIF détaillé (JPEG/TIFF)
+colorama         # Couleurs terminal (Windows)
 stegano          # Stéganographie LSB
 pytesseract      # OCR Tesseract
 easyocr          # OCR deep learning
 reportlab        # Génération PDF
-```
-
-**Phase 2 - Intelligence Artificielle :**
-```
-openai           # Client API (compatible OpenRouter)
-python-dotenv    # Gestion variables d'environnement
-spacy            # NLP (structuration)
 ```
 
 ---
@@ -665,11 +578,13 @@ spacy            # NLP (structuration)
 ## 📝 Exemples
 
 ### Exemple 1: Analyser une image simple
+
 ```bash
 python decodeur.py --image photo.jpg
 ```
 
 ### Exemple 2: Image avec message LSB caché
+
 ```bash
 python decodeur.py --image secret.png --verbose
 ```
@@ -679,13 +594,10 @@ python decodeur.py --image secret.png --verbose
 [LSB]
   ✓ Message caché : OUI
     Message: Mon message secret...
-
-[ANALYSE INTELLIGENTE - LLM]
-  📊 Score IA : 45/100
-  🎯 Danger : MEDIUM
 ```
 
 ### Exemple 3: Générer tous les rapports
+
 ```bash
 python decodeur.py --image suspect.png --output ./forensic_reports --verbose --pdf
 ```
@@ -716,10 +628,6 @@ python decodeur.py --image suspect.png --output ./forensic_reports --verbose --p
    - Il fournit des indices et un niveau de suspicion
    - L'analyste humain prend la décision finale
 
-6. **🆕 L'IA enrichit l'analyse mais ne remplace pas l'expert**
-   - Le LLM fournit une interprétation intelligente
-   - L'analyste conserve le contrôle final
-
 ### Niveaux de Suspicion
 
 | Niveau | Critère | Interprétation |
@@ -734,6 +642,7 @@ python decodeur.py --image suspect.png --output ./forensic_reports --verbose --p
 ## 🔧 Dépannage
 
 ### Erreur: Tesseract non trouvé
+
 ```
 pytesseract.pytesseract.TesseractNotFoundError
 ```
@@ -744,6 +653,7 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Votre\Chemin\tesseract.exe'
 ```
 
 ### Erreur: Module non trouvé
+
 ```
 ModuleNotFoundError: No module named 'xxx'
 ```
@@ -754,6 +664,7 @@ pip install xxx
 ```
 
 ### Warning: pin_memory
+
 ```
 UserWarning: 'pin_memory' argument is set as true but no accelerator is found
 ```
@@ -768,17 +679,6 @@ EasyOCR charge des modèles de deep learning (~100MB). La première exécution t
 - Utiliser `--verbose` pour voir la progression
 - Les exécutions suivantes seront plus rapides (modèles en cache)
 
-### Erreur : Analyse IA échoue
-```
-[WARNING] Analyse intelligente échouée
-```
-
-**Solutions:**
-1. Vérifier que `.env` existe et contient `OPENROUTER_API_KEY`
-2. Vérifier la connexion Internet
-3. Tester la clé : https://openrouter.ai/
-4. Les résultats de Phase 1 restent disponibles
-
 ---
 
 ## 📄 Licence
@@ -791,6 +691,7 @@ MIT License - Libre d'utilisation, modification et distribution.
 
 Développé dans le cadre du projet **Digital Skills** - Cycle Ingénieur S1
 
+<<<<<<< HEAD
 - **Phase 1 (Forensique)** : Omar Bouhaddach
 - **Phase 2 (IA - LLM + NLP)** : Douha 
 
@@ -853,3 +754,16 @@ Toujours obtenir les autorisations nécessaires avant d'analyser des images.
 <p align="center">
   <i>Développé avec ❤️ pour la cybersécurité et l'analyse forensique</i>
 </p>
+=======
+---
+
+## 🔮 Prochaines Phases
+
+- **Phase 2:** Intégration LLM pour analyse intelligente
+- **Phase 3:** API REST et interface web
+- **Phase 4:** NLP pour extraction d'entités
+
+---
+
+> 🔒 **Rappel:** Cet outil est destiné à un usage éthique et légal uniquement. Toujours obtenir les autorisations nécessaires avant d'analyser des images.
+>>>>>>> 88bf95166bff16f82acd4efb74dc07657dd785f1

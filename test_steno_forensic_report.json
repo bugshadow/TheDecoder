@@ -1,0 +1,163 @@
+{
+  "image": "test_steno.png",
+  "image_path": "E:\\ENSET\\Digital_Skills_Py\\TheDecoder\\test_steno.png",
+  "analysis_date": "2026-01-03T19:16:09.422900",
+  "ocr": {
+    "tesseract": {
+      "text": "",
+      "success": false
+    },
+    "easyocr": {
+      "text": "",
+      "success": false
+    }
+  },
+  "steganography": {
+    "lsb": "Message cache : TEST FORENSIC",
+    "exif": {
+      "standard": {},
+      "suspicious": [],
+      "comments": [],
+      "raw_tags": {}
+    },
+    "ascii_strings": [],
+    "binary_signatures": [
+      {
+        "type": "BMP",
+        "offset": 46585,
+        "hex_offset": "0xb5f9"
+      },
+      {
+        "type": "BMP",
+        "offset": 58439,
+        "hex_offset": "0xe447"
+      },
+      {
+        "type": "BMP",
+        "offset": 68735,
+        "hex_offset": "0x10c7f"
+      },
+      {
+        "type": "BMP",
+        "offset": 92756,
+        "hex_offset": "0x16a54"
+      },
+      {
+        "type": "BMP",
+        "offset": 188454,
+        "hex_offset": "0x2e026"
+      },
+      {
+        "type": "BMP",
+        "offset": 365456,
+        "hex_offset": "0x59390"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 164245,
+        "hex_offset": "0x28195"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 175514,
+        "hex_offset": "0x2ad9a"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 217266,
+        "hex_offset": "0x350b2"
+      },
+      {
+        "type": "EXE_MZ",
+        "offset": 293573,
+        "hex_offset": "0x47ac5"
+      }
+    ],
+    "bit_plane_anomaly": false,
+    "histogram_anomaly": false,
+    "bit_plane_details": {
+      "lsb_entropy": 0.19038578867912292,
+      "lsb_ratio": 0.9707956613916902,
+      "anomaly_entropy": false,
+      "anomaly_ratio": false
+    },
+    "histogram_details": {
+      "channel_stats": {
+        "Blue": {
+          "mean": 250.00076976642836,
+          "std": 32.11201010228207,
+          "peaks": [
+            255
+          ],
+          "zero_gaps": 0
+        },
+        "Green": {
+          "mean": 250.00077209278763,
+          "std": 32.11201042822929,
+          "peaks": [
+            255
+          ],
+          "zero_gaps": 0
+        },
+        "Red": {
+          "mean": 250.00076976642836,
+          "std": 32.11201010228207,
+          "peaks": [
+            255
+          ],
+          "zero_gaps": 0
+        }
+      },
+      "anomalous_channels": []
+    }
+  },
+  "summary": {
+    "extraction_success": true,
+    "suspicion_level": "low",
+    "methods_with_findings": [
+      "LSB",
+      "SIGNATURES"
+    ],
+    "total_findings": 2
+  },
+  "intelligent_analysis": {
+    "status": "success",
+    "summary": "Le texte extrait par stéganalyse contient un message caché qui semble être un test de capacités forensiques. L'analyse révèle que le contenu est probablement anodin, mais certaines caractéristiques techniques pourraient indiquer une intention plus complexe.",
+    "nature": "benign",
+    "intention": "L'intention probable de l'auteur est de tester les capacités d'analyse forensique du destinataire ou de démontrer les compétences en stéganographie. Cependant, il est également possible que ce message soit un leurre pour dissimuler un objectif plus malveillant.",
+    "suspicion_score": 20,
+    "danger_level": "low",
+    "risk_indicators": [
+      "Utilisation de la stéganographie pour cacher un message, ce qui peut indiquer une volonté de dissimulation.",
+      "Présence de signatures binaires détectées, ce qui pourrait être le signe d'une tentative d'exfiltration de données ou d'une infection malveillante."
+    ],
+    "suspicious_elements": [],
+    "recommendations": [
+      "Effectuer une analyse plus approfondie des signatures binaires pour déterminer leur origine et leur objectif.",
+      "Rechercher d'autres indices ou messages cachés dans le fichier ou les communications associées."
+    ],
+    "entities": {
+      "persons": [
+        "Aucune"
+      ],
+      "organizations": [
+        "Aucune"
+      ],
+      "locations": [],
+      "emails": [],
+      "urls": [],
+      "dates": [
+        "Aucune"
+      ]
+    },
+    "llm_metadata": {
+      "model": "meta-llama/llama-3.1-405b-instruct:free",
+      "tokens": 900,
+      "raw_response": "**RAPPORT D'ANALYSE FORENSIQUE**\n\n**=== RÉSUMÉ ===**\n\nLe texte extrait par stéganalyse contient un message caché qui semble être un test de capacités forensiques. L'analyse révèle que le contenu est probablement anodin, mais certaines caractéristiques techniques pourraient indiquer une intention plus complexe.\n\n**=== NATURE DU CONTENU ===**\n\nANODIN\n\n**=== INTENTION PROBABLE ===**\n\nL'intention probable de l'auteur est de tester les capacités d'analyse forensique du destinataire ou de démontrer les compétences en stéganographie. Cependant, il est également possible que ce message soit un leurre pour dissimuler un objectif plus malveillant.\n\n**=== SCORE DE SUSPICION ===**\n\n20\n\n**=== INDICATEURS DE RISQUE ===**\n\n- Utilisation de la stéganographie pour cacher un message, ce qui peut indiquer une volonté de dissimulation.\n- Présence de signatures binaires détectées, ce qui pourrait être le signe d'une tentative d'exfiltration de données ou d'une infection malveillante.\n\n**=== ÉLÉMENTS SUSPECTS DÉTECTÉS ===**\n\n- Le message caché \"TEST FORENSIC\" pourrait être considéré comme une provocation ou un piège pour inciter l'analyste à poursuivre l'investigation.\n- La présence de 10 signatures binaires détectées nécessite une analyse plus approfondie pour déterminer leur nature et leur objectif.\n\n**=== RECOMMANDATIONS ===**\n\n- Effectuer une analyse plus approfondie des signatures binaires pour déterminer leur origine et leur objectif.\n- Rechercher d'autres indices ou messages cachés dans le fichier ou les communications associées.\n\n**=== ENTITÉS CLÉS ===**\n\n- Personnes: Aucune\n- Organisations: Aucune\n- Lieux: Aucun\n- Emails: Aucun\n- URLs: Aucune\n- Dates: Aucune\n\nCe rapport est basé sur les informations fournies et est sujet à révision en fonction de nouvelles découvertes ou d'analyses supplémentaires."
+    },
+    "sources": [
+      "Stéganographie LSB"
+    ],
+    "text_length": 29
+  }
+}

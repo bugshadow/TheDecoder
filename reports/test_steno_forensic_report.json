@@ -1,7 +1,7 @@
 {
   "image": "test_steno.png",
   "image_path": "C:\\Users\\bouha\\OneDrive\\Dokumente\\Cycle Ingenieur\\S1\\Digital skills\\Project Fin module\\test_steno.png",
-  "analysis_date": "2026-01-03T11:55:59.757285",
+  "analysis_date": "2026-01-03T19:55:27.741575",
   "ocr": {
     "tesseract": {
       "text": "",
@@ -120,5 +120,48 @@
       "SIGNATURES"
     ],
     "total_findings": 3
+  },
+  "intelligent_analysis": {
+    "status": "success",
+    "summary": "Le texte analysé est une lettre d'explication concernant une situation non spécifiée, avec un message caché détecté par stéganalyse. Le contenu semble être une excuse ou une justification pour un événement ou une action.",
+    "nature": "professional",
+    "intention": "L'intention probable de l'auteur est de se justifier ou de s'excuser pour une action ou un événement qui a eu lieu, tout en montrant une volonté de collaborer pour résoudre le problème.",
+    "suspicion_score": 20,
+    "danger_level": "low",
+    "risk_indicators": [
+      "Présence d'un message caché (TEST FORENSIC) détecté par stéganalyse",
+      "Manque de détails sur la situation décrite"
+    ],
+    "suspicious_elements": [],
+    "recommendations": [
+      "Effectuer une analyse plus approfondie du message caché et des signatures binaires pour déterminer leur nature et leur objectif",
+      "Demander des clarifications sur la situation décrite dans la lettre pour mieux comprendre le contexte"
+    ],
+    "entities": {
+      "persons": [
+        "Aucune mention spécifique"
+      ],
+      "organizations": [
+        "Aucune mention spécifique"
+      ],
+      "locations": [
+        "Aucune mention spécifique"
+      ],
+      "emails": [],
+      "urls": [],
+      "dates": [
+        "Aucune mention spécifique"
+      ]
+    },
+    "llm_metadata": {
+      "model": "meta-llama/llama-3.1-405b-instruct:free",
+      "tokens": 1143,
+      "raw_response": "**Rapport d'Analyse Forensique**\n\n**=== RÉSUMÉ ===**\nLe texte analysé est une lettre d'explication concernant une situation non spécifiée, avec un message caché détecté par stéganalyse. Le contenu semble être une excuse ou une justification pour un événement ou une action.\n\n**=== NATURE DU CONTENU ===**\nPROFESSIONNEL\n\n**=== INTENTION PROBABLE ===**\nL'intention probable de l'auteur est de se justifier ou de s'excuser pour une action ou un événement qui a eu lieu, tout en montrant une volonté de collaborer pour résoudre le problème.\n\n**=== SCORE DE SUSPICION ===**\n20\n\n**=== INDICATEURS DE RISQUE ===**\n- Présence d'un message caché (TEST FORENSIC) détecté par stéganalyse\n- Manque de détails sur la situation décrite\n\n**=== ÉLÉMENTS SUSPECTS DÉTECTÉS ===**\n- Message caché (TEST FORENSIC)\n- 10 signatures binaires détectées, pouvant indiquer la présence de fichiers cachés ou de code malveillant\n\n**=== RECOMMANDATIONS ===**\n- Effectuer une analyse plus approfondie du message caché et des signatures binaires pour déterminer leur nature et leur objectif\n- Demander des clarifications sur la situation décrite dans la lettre pour mieux comprendre le contexte\n\n**=== ENTITÉS CLÉS ===**\n- Personnes: Aucune mention spécifique\n- Organisations: Aucune mention spécifique\n- Lieux: Aucune mention spécifique\n- Emails: Aucune mention spécifique\n- URLs: Aucune mention spécifique\n- Dates: Aucune mention spécifique\n\nNote: Le score de suspicion est relativement bas, car le contenu de la lettre semble être professionnel et ne présente pas de caractère ouvertement malveillant. Cependant, la présence d'un message caché et de signatures binaires détectées justifie une analyse plus approfondie pour déterminer leur nature et leur objectif."
+    },
+    "sources": [
+      "Stéganographie LSB",
+      "OCR (easyocr)"
+    ],
+    "text_length": 992
   }
 }

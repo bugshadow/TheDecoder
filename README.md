@@ -183,7 +183,8 @@ python decodeur.py --image <chemin_image>
 | `--image` | `-i` | Chemin vers l'image à analyser | ✅ Oui |
 | `--output` | `-o` | Dossier de sortie pour les rapports | ❌ Non |
 | `--verbose` | `-v` | Affichage détaillé des étapes | ❌ Non |
-| `--pdf` | | Génération du rapport PDF | ❌ Non |
+| `--pdf` | | Génération du rapport PDF détaillé | ❌ Non |
+| `--docs` | `-d` | Afficher la documentation complète | ❌ Non |
 
 ### Exemples de Commandes
 ```bash
@@ -199,9 +200,37 @@ python decodeur.py --image photo.png --pdf
 # Analyse complète avec sortie personnalisée
 python decodeur.py --image photo.png --output ./reports --verbose --pdf
 
-# Avec l'environnement virtuel
+# Afficher la documentation complète
+python decodeur.py --docs
+
+# Ou le raccourci
+python decodeur.py -d
+
+# Avec l'environnement virtuel (Windows PowerShell)
 .\venv\Scripts\python.exe decodeur.py --image test_steno.png --verbose --pdf
 ```
+
+### 📖 Documentation Interactive
+
+Pour obtenir la documentation complète du programme directement dans le terminal, utilisez:
+
+```bash
+# Commande longue
+python decodeur.py --docs
+
+# Raccourci
+python decodeur.py -d
+```
+
+Cela affichera un guide complet incluant:
+- 📋 Description détaillée de l'outil
+- 🔍 Toutes les méthodes d'analyse disponibles
+- 📊 Types de résultats générés (JSON, PDF, Terminal)
+- 💡 Exemples d'utilisation détaillés
+- ⚠️ Explications des niveaux de suspicion (NONE, LOW, MEDIUM, HIGH)
+- 📦 Dépendances principales requises
+- 🧠 Capacités d'analyse IA/LLM avec recommandations
+- 🔧 Configuration recommandée
 
 ---
 
@@ -517,10 +546,70 @@ Le rapport JSON contient toutes les données structurées incluant l'analyse IA 
 
 Le rapport PDF contient:
 - **En-tête:** Titre, date, informations générales
-- **Tableau des résultats:** 7 méthodes forensiques
-- **Analyse Intelligente (LLM + NLP)** : Score, recommandations, résumé
-- **Conclusion:** Niveau de suspicion
+- **Tableau des résultats:** 9 méthodes forensiques (incluant bit-planes et histogramme)
+- **Analyse Intelligente (LLM + NLP)** : Score détaillé, patterns détectés, recommandations complètes
+  - 📊 Score de suspicion IA (0-100)
+  - 🎯 Niveau de danger (NONE, LOW, MEDIUM, HIGH)
+  - 📝 Nature du contenu identifiée
+  - 📋 Résumé détaillé de l'analyse
+  - 🔍 Analyse détaillée des patterns
+  - ✅ Recommandations d'investigation
+  - 🔧 Métadonnées du modèle LLM
+- **Conclusion:** Niveau de suspicion global
 - **Footer:** Version et timestamp
+
+Générer un PDF:
+```bash
+python decodeur.py --image photo.png --pdf --verbose
+```
+
+---
+
+## 📖 Utilisation de l'Environnement Virtuel (venv)
+
+### Pourquoi utiliser venv?
+
+L'environnement virtuel `venv` isole les dépendances du projet:
+- ✅ Évite les conflits de versions avec d'autres projets
+- ✅ Facilite la collaboration entre développeurs  
+- ✅ Reproduction fiable des analyses
+- ✅ Sécurité et maintenabilité
+
+### Configuration rapide
+
+**Windows (PowerShell):**
+```powershell
+# Créer le venv
+python -m venv venv
+
+# Activer
+.\venv\Scripts\Activate.ps1
+
+# Installer les dépendances
+pip install -r requirements.txt
+
+# Utiliser l'outil
+python decodeur.py --image photo.png --pdf
+
+# Afficher la documentation
+python decodeur.py --docs
+```
+
+**Windows (CMD):**
+```cmd
+python -m venv venv
+.\venv\Scripts\activate.bat
+pip install -r requirements.txt
+python decodeur.py --image photo.png --pdf
+```
+
+**Linux/Mac:**
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python decodeur.py --image photo.png --pdf
+```
 
 ---
 
@@ -534,7 +623,7 @@ shadowtrace/
 ├── config.py                 # Configuration (mots-clés, modèles)
 ├── .env                      # Variables d'environnement (non versionné)
 ├── requirements.txt          # Dépendances
-├── README.md                 # Documentation
+├── venv/                     # Environnement virtuel
 └── reports/                  # Rapports générés
 ```
 

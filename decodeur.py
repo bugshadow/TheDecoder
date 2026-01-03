@@ -976,18 +976,38 @@ def generate_pdf_report(results: Dict[str, Any], output_path: Path, image_path: 
             ]))
             elements.append(ia_table)
             
-            # Résumé IA
+            # Résumé IA détaillé
             if ia['summary']:
-                elements.append(Spacer(1, 10))
-                elements.append(Paragraph("<b>Résumé de l'analyse :</b>", normal_style))
-                elements.append(Paragraph(ia['summary'], normal_style))
+                elements.append(Spacer(1, 15))
+                elements.append(Paragraph("<b>📋 Résumé Détaillé de l'Analyse IA :</b>", normal_style))
+                elements.append(Spacer(1, 8))
+                summary_text = ia['summary'].replace('\n', '<br/>')
+                elements.append(Paragraph(summary_text, normal_style))
             
-            # Recommandations
+            # Détails supplémentaires LLM
+            if ia.get('detailed_analysis'):
+                elements.append(Spacer(1, 15))
+                elements.append(Paragraph("<b>🔍 Analyse Détaillée :</b>", normal_style))
+                elements.append(Spacer(1, 8))
+                detailed = ia.get('detailed_analysis', '').replace('\n', '<br/>')
+                elements.append(Paragraph(detailed[:500], normal_style))
+            
+            # Patterns détectés
+            if ia.get('patterns'):
+                elements.append(Spacer(1, 15))
+                elements.append(Paragraph("<b>🎯 Patterns Détectés :</b>", normal_style))
+                elements.append(Spacer(1, 8))
+                for pattern in ia.get('patterns', []):
+                    elements.append(Paragraph(f"• {pattern}", normal_style))
+            
+            # Recommandations détaillées
             if ia['recommendations']:
-                elements.append(Spacer(1, 10))
-                elements.append(Paragraph("<b>Recommandations :</b>", normal_style))
+                elements.append(Spacer(1, 15))
+                elements.append(Paragraph("<b>✅ Recommandations d'Investigation :</b>", normal_style))
+                elements.append(Spacer(1, 8))
                 for i, rec in enumerate(ia['recommendations'], 1):
-                    elements.append(Paragraph(f"{i}. {rec}", normal_style))
+                    elements.append(Paragraph(f"<b>{i}.</b> {rec}", normal_style))
+                    elements.append(Spacer(1, 5))
     
     # Footer
     elements.append(Spacer(1, 40))
@@ -1008,6 +1028,113 @@ def generate_pdf_report(results: Dict[str, Any], output_path: Path, image_path: 
     print(f"{Fore.GREEN}[+] Rapport PDF généré : {output_path}")
 
 
+
+# ============================================================================
+# DOCUMENTATION
+# ============================================================================
+
+DOCUMENTATION = """
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    LE DÉCODEUR - Analyse Forensique d'Images              ║
+║                              Documentation v1.0                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📋 DESCRIPTION:
+   Outil CLI complet pour l'analyse forensique d'images avec détection de
+   stéganographie, OCR, analyse de métadonnées, et génération de rapports
+   détaillés. Intègre un analyseur LLM pour une analyse intelligente.
+
+🚀 USAGE:
+   python decodeur.py --image <FICHIER> [OPTIONS]
+
+📌 OPTIONS OBLIGATOIRES:
+   --image, -i <FICHIER>     Chemin vers l'image à analyser (JPG, PNG, BMP, etc.)
+
+📌 OPTIONS UTILES:
+   --output, -o <DOSSIER>    Dossier de sortie pour les rapports (défaut: même dossier)
+   --pdf                      Générer un rapport PDF détaillé
+   --verbose, -v              Affichage détaillé de toutes les étapes
+   --docs, -d                 Afficher cette documentation
+
+🔍 MÉTHODES D'ANALYSE:
+   • OCR (Tesseract)          Extraction de texte avec reconnaissance optique
+   • OCR (EasyOCR)            OCR multi-langue performant
+   • Stéganographie LSB        Détection dans le bit de poids faible
+   • Métadonnées EXIF         Analyse des données embarquées
+   • Chaînes ASCII             Recherche de contenu textuel caché
+   • Signatures binaires       Détection de fichiers cachés
+   • Bit-planes                Analyse spectrale des plans de bits
+   • Histogramme               Détection d'anomalies statistiques
+   • Analyse LLM               Analyse intelligente avec NLP
+
+📊 RÉSULTATS:
+   • Rapport JSON              Données structurées complètes
+   • Rapport PDF               Rapport formaté pour présentation
+   • Rapport Terminal          Résumé visuel immédiat
+
+💡 EXEMPLES D'UTILISATION:
+   # Analyse basique
+   python decodeur.py --image photo.jpg
+   
+   # Analyse avec rapport PDF
+   python decodeur.py --image photo.jpg --pdf
+   
+   # Analyse verbose avec rapports
+   python decodeur.py --image photo.jpg --pdf --verbose
+   
+   # Rapport vers un dossier spécifique
+   python decodeur.py --image photo.jpg --output ./rapports --pdf --verbose
+   
+   # Afficher cette documentation
+   python decodeur.py --docs
+
+⚠️  NIVEAUX DE SUSPICION:
+   • NONE (Vert):   Aucune anomalie détectée
+   • LOW (Vert):    Anomalies mineures et courantes
+   • MEDIUM (Jaune): Plusieurs indices suspects détectés
+   • HIGH (Rouge):  Probabilité élevée de contenu caché
+
+📝 FORMAT DES RAPPORTS:
+   • PDF: Rapport formaté avec tableaux et recommandations
+   • JSON: Données structurées pour analyse automatisée
+   • Terminal: Résumé colorisé et lisible
+
+🧠 ANALYSE INTELLIGENTE (LLM):
+   Intègre un analyseur LLM pour:
+   • Classification contextuelle du contenu
+   • Calcul d'un score de suspicion basé sur IA
+   • Identification de patterns de stéganographie
+   • Recommandations d'actions
+   • Analyse du danger potentiel
+
+🔧 CONFIGURATION RECOMMANDÉE:
+   • Python 3.8+
+   • Tesseract-OCR installé (Windows: ajouter au PATH)
+   • Environnement virtuel (venv) pour les dépendances
+
+📦 DÉPENDANCES PRINCIPALES:
+   • opencv-python      - Traitement d'images
+   • pillow             - Manipulation d'images
+   • pytesseract        - OCR Tesseract
+   • easyocr            - OCR multi-langue
+   • stegano            - Analyse stéganographie
+   • reportlab          - Génération PDF
+   • colorama           - Sortie colorisée
+   • anthropic          - Analyse LLM Claude
+
+✨ RÉSULTAT FINAL:
+   Rapports détaillés incluant tous les résultats d'analyse avec score de
+   suspicion, recommandations d'investigation, et pistes forensiques.
+
+════════════════════════════════════════════════════════════════════════════
+"""
+
+def display_documentation():
+    """Affiche la documentation complète du programme."""
+    print(DOCUMENTATION)
+    sys.exit(0)
+
+
 # ============================================================================
 # POINT D'ENTRÉE CLI
 # ============================================================================
@@ -1019,8 +1146,8 @@ def main():
         epilog='''
 Exemples:
   python decodeur.py --image photo.png
-  python decodeur.py --image photo.png --verbose
-  python decodeur.py --image photo.png --output ./reports --pdf
+  python decodeur.py --image photo.png --verbose --pdf
+  python decodeur.py --docs (pour voir la documentation complète)
         '''
     )
     
@@ -1050,7 +1177,17 @@ Exemples:
         help='Générer un rapport PDF en plus du JSON'
     )
     
+    parser.add_argument(
+        '--docs', '-d',
+        action='store_true',
+        help='Afficher la documentation complète'
+    )
+    
     args = parser.parse_args()
+    
+    # Afficher la documentation si demandé
+    if args.docs:
+        display_documentation()
     
     # Vérifier que l'image existe
     image_path = Path(args.image)

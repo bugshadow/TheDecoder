@@ -4,7 +4,7 @@ from PIL import Image
 
 # Configuration de la page
 st.set_page_config(
-    page_title="ShadowTrace - Analyse Forensique",
+    page_title="Revelator - Analyse Forensique",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -18,7 +18,7 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     st.markdown('<div style="margin-top: 100px;"></div>', unsafe_allow_html=True)
-    st.markdown("# ShadowTrace")
+    st.markdown("# Revelator")
     st.markdown("### Analyse Forensique d'Images Intelligente")
     st.markdown("""
     <div class="hero-text">

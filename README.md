@@ -2,7 +2,7 @@
 
 [![Python 3.x](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Phase: 1](https://img.shields.io/badge/Phase-1-orange.svg)]()
+[![Phase: 2 Completed](https://img.shields.io/badge/Phase-2_Completed-green.svg)]()
 
 > **Outil CLI professionnel pour l'analyse forensique d'images avec détection de stéganographie, OCR, et analyse de métadonnées.**
 
@@ -37,12 +37,15 @@
 - ✅ Comparer et corréler les résultats
 - ✅ Générer des rapports structurés (Terminal, JSON, PDF)
 
-### Ce que cet outil N'est PAS (Phase 1)
+### 🚀 État du Projet : Phase 2 Terminée avec Succès
 
-- ❌ Pas d'intégration LLM (Gemini, OpenAI, Ollama)
-- ❌ Pas de NLP (spaCy, NER, résumé)
-- ❌ Pas d'API web
-- ❌ Pas d'interface graphique
+**Le module d'Intelligence Artificielle est désormais pleinement opérationnel !**
+
+- ✅ **Intégration LLM Avancée** : Analyse sémantique via Llama 3.1 405B
+- ✅ **Traitement NLP (spaCy)** : Extraction d'entités et structuration des données
+- ✅ **Analyse Contextuelle** : L'IA ne se contente pas de trouver des données, elle comprend leur sens (Détection de menaces, classification)
+- ✅ **Interface Graphique** : UI Cyber-Forensic complète avec Streamlit
+
 
 ---
 
@@ -671,8 +674,8 @@ MIT License - Libre d'utilisation, modification et distribution.
 
 Développé dans le cadre du projet **Digital Skills** - Cycle Ingénieur S1
 
-- **Phase 1 (Forensique)** : Omar Bouhaddach
-- **Phase 2 (IA - LLM + NLP)** : Douha 
+- **Développement Complet (Phase 1 & 2)** : Omar BOUHADDACH & Douha ELHANBALI
+- **Expertise** : Forensique Numérique, IA & Développement Logiciel 
 
 ---
 
